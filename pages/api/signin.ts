@@ -5,7 +5,7 @@ import cookie from 'cookie'
 
 import prisma from '../../lib/prisma'
 import { IS_PROD } from '../../lib/env'
-import { JWT_SECRET, JWT_AUTH_AGE, COOKIE_AUTH_AGE } from '../../lib/constants'
+import { JWT_SECRET, JWT_AUTH_AGE, COOKIE_AUTH_AGE, COOKIE_ACCESS_NAME } from '../../lib/constants'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { email, password } = req.body
@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader(
     'Set-Cookie',
     cookie.serialize(
-      'ZPOTIFY_ACCESS_TOKEN',
+      COOKIE_ACCESS_NAME,
       token,
       {
         httpOnly: true,
