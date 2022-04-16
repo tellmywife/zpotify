@@ -5,7 +5,7 @@ import { useSWRConfig } from 'swr'
 import { Box, Flex, Input, Button } from '@chakra-ui/react'
 import { auth } from '../lib/mutations'
 
-const AuthForm: FC<{ mode: 'signin' | 'singup' }> = ({ mode }) => {
+const AuthForm: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')  
   const [error, setError] = useState('')
