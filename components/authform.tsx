@@ -29,7 +29,7 @@ const AuthForm: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
 
   return (<Box width="100vw" height="100vh" bg="black" color="white">
     <Flex justify="center" align="center" height="100px" borderBottom="white 1px solid">
-      <NextImage src="/image.svg" height={60} width={60} />
+      <NextImage src="/logo.svg" height={60} width={60} />
     </Flex>
     <Flex justify="center" align="center" height="calc(100vh - 100px)" direction="column">
       {mode} form
