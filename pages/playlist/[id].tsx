@@ -34,8 +34,19 @@ const Playlist = ({ playlist }) => {
 }
 
 export const getServerSideProps = async ({ query, req }) => {
-  const token = getToken(req)
-  const { id } = validateToken(token)
+  let id
+
+  try {
+    const token = getToken(req)
+    id = validateToken(token).id
+  } catch (error) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/signin',
+      }
+    }
+  }
 
   const [playlist] = await prisma.playlist.findMany({
     where: {
